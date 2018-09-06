@@ -2,6 +2,7 @@ import random
 
 guesses = 0
 guessed_letters = []
+alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
 def load_word():
     words = ["car", "bike", "eagle", "fish", "secret", "computer", "desk", "chair", "light", "kite", "button", "bear", "descent", "sun", "moon", "otter", "picture"]
@@ -20,22 +21,43 @@ def updateLetters():
     return (hidden_letters, shown_letters)
 
 
-#show is a tuple with first element being the hidden_letters and the second element being the shown_letters
+def displayWordFromArray(x):
+    stringShown = ""
+    for chars in x:
+        stringShown += (str(chars + " "))
+    return stringShown
+
+def displayLettersGuessedFromArray(x):
+    stringShown = ""
+    for chars in x:
+        stringShown += (str(chars + ", "))
+    return stringShown
+
+
 show = updateLetters()
 while guesses < 8:
     if "_" not in show[0]:
-        print(show[1])
-        print("You won!")
+        print("\nWORD: " + displayWordFromArray(show[1]))
+        print("\nYou won!\n")
         break
     else:
-        print(guessed_letters)
-        print(show[0])
-        print(guesses)
-        x = input("Please enter a letter.")
-        if type(x) is str and len(x) == 1 and x not in guessed_letters:
+        print("\nGuessed letters: " + displayLettersGuessedFromArray(guessed_letters))
+        print("\nWORD: " + displayWordFromArray(show[0]))
+        print("\nYou have " + str((8 - guesses))+ " guesses.")
+        x = input("\n\nPlease enter a letter. \n\n")
+        x = str.lower(x)
+        if x in alphabet and len(x) == 1 and x not in guessed_letters:
             guessed_letters.append(x)
             show = updateLetters()
             if x not in show[0]:
                 guesses += 1
+        elif x in guessed_letters:
+            print("\n\nPlease guess a letter you haven't guessed already.")
+        elif len(x) > 1:
+            print("\n\nPlease guess just one letter.")
+        elif x not in alphabet:
+            print("\n\nPlease guess a letter.")
+        else:
+            print("\n\nI have no idea what you typed, but it was wrong. Try entering a letter.")
 else:
-    print("You Lost")
+    print("\nYou Lost")
