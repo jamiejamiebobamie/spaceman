@@ -33,6 +33,53 @@ def displayLettersGuessedFromArray(x):
         stringShown += (str(chars + ", "))
     return stringShown
 
+def drawMan(x):
+    if x == 1:
+        return "  ^"
+    elif x == 2:
+        return ("  ^\n"
+                "  ||")
+    elif x == 3:
+        return ("  ^\n"
+                "  ||\n"
+        "   @  - Goodbye, says the spaceman!")
+    elif x == 4:
+        return ("  ^\n"
+                "  ||\n"
+        "   @  - Goodbye, says the spaceman!\n"
+        "  ||")
+    elif x == 5:
+        return ("  ^\n"
+                "  ||\n"
+        "   @  - Goodbye, says the spaceman!\n"
+        "  ||\n"
+        "  || - T-MINUS 3!")
+    elif x == 6:
+        return ("  ^\n"
+                "  ||\n"
+        "   @  - Goodbye, says the spaceman!\n"
+        "  ||\n"
+        "  || - T-MINUS 3!\n"
+        "  vv - 2!")
+    elif x == 7:
+        return ("  ^\n"
+                "  ||\n"
+        "   @  - Goodbye, says the spaceman!\n"
+        "  ||\n"
+        "  || - T-MINUS 3!\n"
+        "  vv - 2!\n"
+        "  XX - 1!")
+    elif x == 8:
+            return ("  ^\n"
+                    "  ||\n"
+            "   @  - Goodbye, says the spaceman!\n"
+            "  ||\n"
+            "  || - T-MINUS 3!\n"
+            "  vv - 2!\n"
+            "  XX - 1! \n"
+            " XXXX -BLAST OFF!!")
+
+
 
 show = updateLetters()
 while guesses < 8:
@@ -43,7 +90,12 @@ while guesses < 8:
     else:
         print("\nGuessed letters: " + displayLettersGuessedFromArray(guessed_letters))
         print("\nWORD: " + displayWordFromArray(show[0]))
-        print("\nYou have " + str((8 - guesses))+ " guesses.")
+        if (8 - guesses) > 1:
+            print("\nYou have " + str((8 - guesses))+ " guesses.\n")
+        else:
+            print("\nYou have " + str((8 - guesses))+ " guess.\n")
+        if guesses != 0:
+            print(drawMan(guesses))
         x = input("\n\nPlease enter a letter. \n\n")
         x = str.lower(x)
         if x in alphabet and len(x) == 1 and x not in guessed_letters:
@@ -60,4 +112,6 @@ while guesses < 8:
         else:
             print("\n\nI have no idea what you typed, but it was wrong. Try entering a letter.")
 else:
-    print("\nYou Lost")
+    print(drawMan(guesses))
+    print("\nWORD: " + displayWordFromArray(show[1]))
+    print("\nYou Lost\n")
