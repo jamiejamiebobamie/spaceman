@@ -34,8 +34,10 @@ def displayLettersGuessedFromArray(x):
     return stringShown
 
 def drawMan(x):
-    if x == 1:
-        return "  ^"
+    if x == 0:
+        return "You're playing Spaceman!"
+    elif x == 1:
+        return "  ^ - The tip of a spaceship has emerged from the ground!"
     elif x == 2:
         return ("  ^\n"
                 "  ||")
@@ -82,6 +84,7 @@ def drawMan(x):
 
 
 show = updateLetters()
+print(drawMan(guesses))
 while guesses < 8:
     if "_" not in show[0]:
         print("\nWORD: " + displayWordFromArray(show[1]))
