@@ -35,7 +35,7 @@ def displayLettersGuessedFromArray(x):
 
 def drawMan(x):
     if x == 0:
-        return "You're playing Spaceman!"
+        return "\nYou're playing Spaceman!"
     elif x == 1:
         return "  ^ - The tip of a spaceship has emerged from the ground!"
     elif x == 2:
@@ -48,37 +48,37 @@ def drawMan(x):
     elif x == 4:
         return ("  ^\n"
                 "  ||\n"
-        "   @  - Goodbye, says the spaceman!\n"
+        "   @ \n"
         "  ||")
     elif x == 5:
         return ("  ^\n"
                 "  ||\n"
-        "   @  - Goodbye, says the spaceman!\n"
+        "   @ \n"
         "  ||\n"
         "  || - T-MINUS 3!")
     elif x == 6:
         return ("  ^\n"
                 "  ||\n"
-        "   @  - Goodbye, says the spaceman!\n"
+        "   @ \n"
         "  ||\n"
-        "  || - T-MINUS 3!\n"
+        "  ||\n"
         "  vv - 2!")
     elif x == 7:
         return ("  ^\n"
                 "  ||\n"
-        "   @  - Goodbye, says the spaceman!\n"
+        "   @  - My wife is really going to miss me.\n"
         "  ||\n"
-        "  || - T-MINUS 3!\n"
-        "  vv - 2!\n"
+        "  ||\n"
+        "  vv\n"
         "  XX - 1!")
     elif x == 8:
             return ("  ^\n"
                     "  ||\n"
-            "   @  - Goodbye, says the spaceman!\n"
+            "   @\n"
             "  ||\n"
-            "  || - T-MINUS 3!\n"
-            "  vv - 2!\n"
-            "  XX - 1! \n"
+            "  ||\n"
+            "  vv\n"
+            "  XX\n"
             " XXXX -BLAST OFF!!")
 
 
